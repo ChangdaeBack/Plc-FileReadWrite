@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="MAIN" Id="{b3f2572f-5923-4de7-914c-47b54684144a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbFileGenerator : FB_FileGenerator;	
+	fbFileReader 	: FB_FileReader;
+	fbOpenFileFromWindow		: FB_OpenFileFromWindow;
+	
+	sPath_Test : STRING(255);
+	sPath_Test2 : STRING(255);
+	
+	sFileName_HI	: STRING(70);
+	sSelectedFile_HI : STRING(70);
+	sSelectedPath_HI : STRING(170);	
+	
+	
+	sTest : STRING;
+	sPath : STRING;
+	
+	ssTest : STRING(1024);
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbFileGenerator(sPath := F_PathCdriveFileName(sSelectedPath_HI, sFileName_HI));
+fbFileReader(sPath := F_PathCdriveSelectedFile(sSelectedPath_HI, sSelectedFile_HI));
+fbOpenFileFromWindow(sFilePath :=  sSelectedPath_HI ,sSelectedName := );
+
+
+sPath := F_PathCdriveFileName(sSelectedPath_HI, sFileName_HI); 
+sPath_Test2 := F_PathCdriveSelectedFile(sSelectedPath_HI, sSelectedFile_HI);
+ 
+
+sTest := F_SubStringSelectedFile(sSelectedFile_HI);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

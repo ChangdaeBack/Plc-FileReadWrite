@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="F_PathCdriveFileName" Id="{79bc70a1-8fe2-42c0-b8c1-9dcc3f465749}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_PathCdriveFileName : STRING
+VAR_INPUT
+	sSelectedPath : STRING(170);
+	sFileName : STRING(70);
+		
+END_VAR
+VAR
+	
+END_VAR
+
+VAR CONSTANT
+	sSlash : STRING(1) := '/';
+	sCdrive : STRING(3) := 'C:\';
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[sSelectedPath := CONCAT(sCdrive,sSelectedPath);
+
+(* Generate Path *)
+MEMSET(ADR(F_PathCdriveFileName),0,SIZEOF(F_PathCdriveFileName));
+MEMCPY(ADR(F_PathCdriveFileName),ADR(sSelectedPath),LEN(sSelectedPath));
+MEMCPY(ADR(F_PathCdriveFileName) + LEN(sSelectedPath),ADR(sSlash),LEN(sSlash));
+MEMCPY(ADR(F_PathCdriveFileName)+ LEN(sSelectedPath) + LEN(sSlash) ,ADR(sFileName) ,LEN(sFileName));
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

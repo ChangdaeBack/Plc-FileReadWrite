@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="F_SubStringSelectedFile" Id="{202eb4b0-cea0-40bd-a529-01cc062f6f1f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_SubStringSelectedFile : STRING
+VAR_INPUT
+	sSelectedFile : STRING;
+END_VAR
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[F_SubStringSelectedFile := DELETE(sSelectedFile,2,LEN(sSelectedFile)-1);
+F_SubStringSelectedFile := DELETE(F_SubStringSelectedFile,2,0);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

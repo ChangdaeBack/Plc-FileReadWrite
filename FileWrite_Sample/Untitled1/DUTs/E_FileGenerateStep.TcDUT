@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <DUT Name="E_FileGenerateStep" Id="{507c61d1-35b6-475e-be50-a59705918ac2}">
+    <Declaration><![CDATA[//{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_FileGenerateStep :
+(
+	init := 0
+	,Open
+	,Write
+	,Close
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

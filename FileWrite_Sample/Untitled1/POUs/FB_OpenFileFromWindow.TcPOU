@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_OpenFileFromWindow" Id="{15857625-84f3-4d2e-b9ff-f7076e710258}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_OpenFileFromWindow
+VAR_INPUT
+	sSelectedFile : STRING(70);
+	sSelectedName : STRING(170);
+	bExecute : BOOL;
+END_VAR
+VAR_OUTPUT
+	bError : BOOL;
+	nErrorID : UDINT;
+END_VAR
+VAR
+	fbStartProcess : NT_StartProcess := (PATHSTR := 'C:\Windows\notepad.exe' );
+	ExecuteTrig : R_trig := (CLK:=bExecute);
+	eState : (Init, FilePath , StartNotePad, Error);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE eState OF
+	Init:
+		fbStartProcess(START:=FALSE);
+		IF ExecuteTrig.Q THEN
+			eState := FilePath;
+		END_IF
+		
+	FilePath:
+		
+	
+	StartNotePad:
+		fbStartProcess(
+						START := TRUE, 
+						DIRNAME:=GetFilePath(sSelectedPath := sSelectedName,sSelectedFile := sSelectedFile), 
+						
+						); 
+	
+	Error:
+END_CASE
+
+fbStartProcess(
+	PATHSTR:= 'C:\Windows\notepad.exe', 
+	DIRNAME:=  'C:\FileExplorerTest', 
+	COMNDLINE:= 'test.txt', 
+	);
+	
+IF fbStartProcess.ERR THEN
+	bError := TRUE;
+	nErrorID := fbStartProcess.ERRID;
+END_IF]]></ST>
+    </Implementation>
+    <Method Name="GetDirectoryPath" Id="{d6345234-6e31-4499-8aa2-31988b98d765}">
+      <Declaration><![CDATA[METHOD PRIVATE GetDirectoryPath : STRING
+VAR_INPUT
+	sSelectedPath : STRING(170);
+END_VAR
+VAR
+	sCdrive : STRING(3) := 'C:\';
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[sSelectedPath := CONCAT(sCdrive, sSelectedPath);]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetFilePath" Id="{9676b915-9f8f-455f-b8c8-f046a8d45aed}">
+      <Declaration><![CDATA[METHOD GetFilePath : STRING
+VAR_INPUT
+	sSelectedPath : STRING(170);
+	sSelectedFile : STRING(70);
+END_VAR
+VAR
+	sTempSelectedFile : STRING(70);
+END_VAR
+VAR CONSTANT
+	sSlash : STRING(1) := '/';
+	sCdrive : STRING(3) := 'C:\';
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[sSelectedPath := CONCAT(sCdrive,sSelectedPath);
+
+sTempSelectedFile := DELETE(sSelectedFile,2,LEN(sSelectedFile)-1);
+sTempSelectedFile := DELETE(sTempSelectedFile,2,0);
+
+(* Generate Path *)
+MEMSET(ADR(GetFilePath),0,SIZEOF(GetFilePath));
+MEMCPY(ADR(GetFilePath),ADR(sSelectedPath),LEN(sSelectedPath));
+MEMCPY(ADR(GetFilePath) + LEN(sSelectedPath),ADR(sSlash),LEN(sSlash));
+MEMCPY(ADR(GetFilePath)+ LEN(sSelectedPath) + LEN(sSlash) ,ADR(sTempSelectedFile) ,LEN(sTempSelectedFile));]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
