@@ -17,13 +17,25 @@
     <LibraryReferences>{e30b4038-dc1b-4401-9d48-8baab148c639}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Developing\FB_FileGenerator_old.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Developing\FB_FileReader_old.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Developing\F_PathCdriveFileName.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Developing\F_PathCdriveSelectedFile.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Developing\F_SubStringSelectedFile.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\E_FileGenerateStep.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\FB_FileGeneraotr2.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\FB_FileGenerator.TcPOU">
@@ -35,15 +47,6 @@
     <Compile Include="POUs\FB_OpenFileFromWindow.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\F_PathCdriveFileName.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\F_PathCdriveSelectedFile.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\F_SubStringSelectedFile.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -51,6 +54,7 @@
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
+    <Folder Include="Developing" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>

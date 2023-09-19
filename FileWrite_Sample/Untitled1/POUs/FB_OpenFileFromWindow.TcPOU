@@ -4,7 +4,7 @@
     <Declaration><![CDATA[FUNCTION_BLOCK FB_OpenFileFromWindow
 VAR_INPUT
 	sSelectedFile : STRING(70);
-	sSelectedName : STRING(170);
+	sSelectedDirectory : STRING(170);
 	bExecute : BOOL;
 END_VAR
 VAR_OUTPUT
@@ -12,79 +12,70 @@ VAR_OUTPUT
 	nErrorID : UDINT;
 END_VAR
 VAR
-	fbStartProcess : NT_StartProcess := (PATHSTR := 'C:\Windows\notepad.exe' );
-	ExecuteTrig : R_trig := (CLK:=bExecute);
-	eState : (Init, FilePath , StartNotePad, Error);
-END_VAR
-]]></Declaration>
+	fbStartProcess : NT_StartProcess := (PATHSTR := 'C:\Windows\System32\notepad.exe' );
+	rTrigExecute : R_trig;
+	eState : (Init, StartNotePad, Error);
+END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[CASE eState OF
+      <ST><![CDATA[rTrigExecute(CLK:=bExecute);
+
+CASE eState OF
 	Init:
 		fbStartProcess(START:=FALSE);
-		IF ExecuteTrig.Q THEN
-			eState := FilePath;
+		bError := FALSE;
+		nErrorID := 0;
+		IF rTrigExecute.Q THEN
+			eState := StartNotePad;
 		END_IF
-		
-	FilePath:
-		
 	
 	StartNotePad:
 		fbStartProcess(
 						START := TRUE, 
-						DIRNAME:=GetFilePath(sSelectedPath := sSelectedName,sSelectedFile := sSelectedFile), 
-						
-						); 
-	
+						DIRNAME := GetDirectoryPath(sSelectedDirectroy := sSelectedDirectory),
+						COMNDLINE := GetFileName(sSelectedFile := sSelectedFile)
+						);
+		IF fbStartProcess.ERR THEN
+			eState := Error;
+			bError := TRUE;
+			nErrorID := fbStartProcess.ERRID;
+		ELSIF NOT fbStartProcess.BUSY THEN
+			eState := Init;
+		END_IF
+ 
 	Error:
-END_CASE
-
-fbStartProcess(
-	PATHSTR:= 'C:\Windows\notepad.exe', 
-	DIRNAME:=  'C:\FileExplorerTest', 
-	COMNDLINE:= 'test.txt', 
-	);
-	
-IF fbStartProcess.ERR THEN
-	bError := TRUE;
-	nErrorID := fbStartProcess.ERRID;
-END_IF]]></ST>
+		IF rTrigExecute.Q THEN
+			eState := Init;
+		END_IF	
+END_CASE]]></ST>
     </Implementation>
-    <Method Name="GetDirectoryPath" Id="{d6345234-6e31-4499-8aa2-31988b98d765}">
+    <Method Name="GetDirectoryPath" Id="{1d298a6f-59ba-4a0c-9206-7573c29506a7}">
       <Declaration><![CDATA[METHOD PRIVATE GetDirectoryPath : STRING
 VAR_INPUT
-	sSelectedPath : STRING(170);
+	sSelectedDirectroy : STRING(170);
 END_VAR
 VAR
-	sCdrive : STRING(3) := 'C:\';
-END_VAR]]></Declaration>
-      <Implementation>
-        <ST><![CDATA[sSelectedPath := CONCAT(sCdrive, sSelectedPath);]]></ST>
-      </Implementation>
-    </Method>
-    <Method Name="GetFilePath" Id="{9676b915-9f8f-455f-b8c8-f046a8d45aed}">
-      <Declaration><![CDATA[METHOD GetFilePath : STRING
-VAR_INPUT
-	sSelectedPath : STRING(170);
-	sSelectedFile : STRING(70);
-END_VAR
-VAR
-	sTempSelectedFile : STRING(70);
+	
 END_VAR
 VAR CONSTANT
-	sSlash : STRING(1) := '/';
 	sCdrive : STRING(3) := 'C:\';
+	sSlash : STRING(1) := '/';
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[sSelectedPath := CONCAT(sCdrive,sSelectedPath);
+        <ST><![CDATA[GetDirectoryPath := CONCAT(sCdrive, sSelectedDirectroy);
+GetDirectoryPath := CONCAT(GetDirectoryPath, sSlash);
 
-sTempSelectedFile := DELETE(sSelectedFile,2,LEN(sSelectedFile)-1);
-sTempSelectedFile := DELETE(sTempSelectedFile,2,0);
-
-(* Generate Path *)
-MEMSET(ADR(GetFilePath),0,SIZEOF(GetFilePath));
-MEMCPY(ADR(GetFilePath),ADR(sSelectedPath),LEN(sSelectedPath));
-MEMCPY(ADR(GetFilePath) + LEN(sSelectedPath),ADR(sSlash),LEN(sSlash));
-MEMCPY(ADR(GetFilePath)+ LEN(sSelectedPath) + LEN(sSlash) ,ADR(sTempSelectedFile) ,LEN(sTempSelectedFile));]]></ST>
+(* Result : C:\sSelctedDirectory/ *)]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="GetFileName" Id="{d173e907-9c5c-422a-a802-775d4b06a0e7}">
+      <Declaration><![CDATA[METHOD PRIVATE GetFileName : STRING
+VAR_INPUT
+	sSelectedFile : STRING(70);
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[GetFileName := DELETE(sSelectedFile,2,LEN(sSelectedFile)-1);
+GetFileName := DELETE(GetFileName,2,1);]]></ST>
       </Implementation>
     </Method>
   </POU>

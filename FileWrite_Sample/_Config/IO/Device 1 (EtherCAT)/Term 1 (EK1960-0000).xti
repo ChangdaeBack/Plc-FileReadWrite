@@ -1,0 +1,522 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.12" ClassName="CFlbTermDef" SubType="9099">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..0] OF BIT</Name>
+			<BitSize>1</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000009}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..8] OF BIT</Name>
+			<BitSize>9</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>9</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
+			<BitSize>4</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000010}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..1] OF BYTE</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>2</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a002000000000000000000000000000000000000808080808080808080808080808080808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ff80808000ffff00ffff00ffff00ffff80808000ffff00ffff00ffff00ffff808080ff00ffff00ffff00ffff00ffff00ff80808000ffff00ffff00ffff00ffff80808000ffff00000000ffff000000808080ff00ffff00ffff00ffff00ffff00ff80808000ffff00ffff00ffff00ffff80808000ffff00ffff00ffff00ffff808080ff00ffff00ffff00ffff00ffff00ff80808000ffff39393939393900ffff80808000ffff00000000ffff000000808080ff00ffff00ffff00ffff00ffff00ff80808000ffff39393939393900ffff80808000ffffff000000ffffff0000808080ff00ffff00ffff00ffff00ffff00ff80808000ffff39393939393900ffff80808000ffff00ffff00ffff00ffff808080ff00ffff00ffff00ffff00ffff00ff80808000ffff00ffff00ffff00ffff80808000ffff00000000ffff000000808080ff00ffff00ffff00ffff00ffff00ff80808000ffff00ffff00ffff00ffff80808000ffff0000ff00ffff0000ff808080ff00ffff00ffff00ffff00ffff00ff80808000ffff39393939393900ffff80808000ffff00ffff00ffff00ffff808080ff00ffff00ffff00ffff00ffff00ff80808000ffff39393939393900ffff80808000ffff00000000ffff000000808080ff00ffff00ffff00ffff00ffff00ff80808000ffff39393939393900ffff80808000ffff00ffff00ffff00ffff808080ff00ffff00ffff00ffff00ffff00ff80808000ffff00ffff00ffff00ffff80808000ffff00800000ffff008000808080ff00ffff00ffff00ffff00ffff00ff80808000ffff00ffff00ffff00ffff80808000ffff00ffff00ffff00ffff808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
+	</ImageDatas>
+	<Box Id="1" BoxType="9099" BoxFlags="#x00000020">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="3" FoeType="1" VendorId="#x00000002" ProductCode="#x07a82c52" RevisionNo="#x00150000" InfoDataAddr="true" RepeatSupport="true" TimeoutStateChange1="5000" TimeoutMailbox2="20000" TComSupport="true" PortPhys="305" DebugMemory="8" SafetyLogicSupported="true" MaxSlotCount="3" Type="EK1960-0000 TwinSAFE-Compact-Controller (RJ45)" Desc="EK1960-0000">
+			<SyncMan>001000012600010001000000000100010001001026010000</SyncMan>
+			<SyncMan>001100012200010002000000000100010001001122010000</SyncMan>
+			<SyncMan>001211002400010003000000000000001100001224010000</SyncMan>
+			<SyncMan>001d11002000010004000000000000001100001d20010000</SyncMan>
+			<SyncMan>000000000400000003000000000000000000000004000000</SyncMan>
+			<SyncMan>000000000000000004000000000000000000000000000000</SyncMan>
+			<SyncMan>f42f04002400010003000000000000000400f42f24010000</SyncMan>
+			<Fmmu>0000000000000000000000020000000001000000060000000200000000000000</Fmmu>
+			<Fmmu>0000000000000000000000010000000002000000060000000300000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<Fmmu>0000000000000000000000020000000001000000060000000600020000000000</Fmmu>
+			<BootStrapData>0010f400f410f400</BootStrapData>
+			<SuName></SuName>
+			<SuName></SuName>
+			<SuName></SuName>
+			<SuName></SuName>
+			<SuTask>#x00000000</SuTask>
+			<SuTask>#x00000000</SuTask>
+			<SuTask>#x00000000</SuTask>
+			<SuTask>#x00000000</SuTask>
+			<MBoxUserCmdData>004003000a00000000000000030010000000000000000000000000000000000020f3100502000000010000</MBoxUserCmdData>
+			<Pdo Name="FSoE Inputs" Index="#x1a00" Flags="#x0091" SyncMan="3">
+				<Entry Name="FSOE__FSoE Command" Index="#x6110" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 1.Module Fault" Index="#x6002" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 2.Module Fault" Index="#x6012" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 3.Module Fault" Index="#x6022" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 4.Module Fault" Index="#x6032" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 5.Module Fault" Index="#x6042" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 6.Module Fault" Index="#x6052" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 1.Channel 1.Input (X6.1)" Index="#x6071" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 1.Channel 2.Input (X6.2)" Index="#x6071" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 1.Module Fault" Index="#x6072" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 2.Channel 1.Input (X6.3)" Index="#x6081" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 2.Channel 2.Input (X6.4)" Index="#x6081" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 2.Module Fault" Index="#x6082" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 3.Channel 1.Input (X6.5)" Index="#x6091" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 3.Channel 2.Input (X6.6)" Index="#x6091" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 3.Module Fault" Index="#x6092" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE CRC 000" Index="#x6110" Sub="#x03">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 4.Channel 1.Input (X6.7)" Index="#x60a1" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 4.Channel 2.Input (X6.8)" Index="#x60a1" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 4.Module Fault" Index="#x60a2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 5.Channel 1.Input (X6.9)" Index="#x60b1" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 5.Channel 2.Input (X6.10)" Index="#x60b1" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 5.Module Fault" Index="#x60b2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 6.Channel 1.Input (X8.1)" Index="#x60c1" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 6.Channel 2.Input (X8.2)" Index="#x60c1" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 6.Module Fault" Index="#x60c2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 7.Channel 1.Input (X8.3)" Index="#x60d1" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 7.Channel 2.Input (X8.4)" Index="#x60d1" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 7.Module Fault" Index="#x60d2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 8.Channel 1.Input (X8.5)" Index="#x60e1" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 8.Channel 2.Input (X8.6)" Index="#x60e1" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 8.Module Fault" Index="#x60e2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 9.Channel 1.Input (X8.7)" Index="#x60f1" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE CRC 001" Index="#x6110" Sub="#x04">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 9.Channel 2.Input (X8.8)" Index="#x60f1" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 9.Module Fault 1" Index="#x60f2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 9.Module Fault 2" Index="#x60f2" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 10.Channel 1.Input (X8.9)" Index="#x6101" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 10.Channel 2.Input (X8.10)" Index="#x6101" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 10.Module Fault 1" Index="#x6102" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 10.Module Fault 2" Index="#x6102" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000009}">ARRAY [0..8] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE CRC 002" Index="#x6110" Sub="#x05">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE Connection ID" Index="#x6110" Sub="#x02">
+					<Type>UINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="FSoE Outputs" Index="#x1600" InOut="1" Flags="#x0091" SyncMan="2">
+				<Entry Name="FSOE__FSoE Command" Index="#x7110" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 1.Channel 1.Output (X5.1)" Index="#x7001" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 1.Channel 2.Output (X5.2)" Index="#x7001" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 1.Channel 3.Output (X5.3)" Index="#x7001" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 1.Channel 4.Output (X5.4)" Index="#x7001" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 1.ErrAck" Index="#x7002" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 2.Channel 1.Output (X5.5)" Index="#x7011" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 2.Channel 2.Output (X5.6)" Index="#x7011" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 2.Channel 3.Output (X5.7)" Index="#x7011" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 2.Channel 4.Output (X5.8)" Index="#x7011" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 2.ErrAck" Index="#x7012" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 3.Channel 1.Output (X7.1)" Index="#x7021" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 3.Channel 2.Output (X7.2)" Index="#x7021" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 3.Channel 3.Output (X7.3)" Index="#x7021" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 3.Channel 4.Output (X7.4)" Index="#x7021" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 3.ErrAck" Index="#x7022" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 4.Channel 1.Output (X7.5)" Index="#x7031" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE CRC 000" Index="#x7110" Sub="#x03">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 4.Channel 2.Output (X7.6)" Index="#x7031" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 4.Channel 3.Output (X7.7)" Index="#x7031" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 4.Channel 4.Output (X7.8)" Index="#x7031" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 4.ErrAck" Index="#x7032" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 5.Channel 1.Output (X9.1)" Index="#x7041" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 5.Channel 2.Output (X9.2)" Index="#x7041" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 5.Channel 3.Output (X9.3)" Index="#x7041" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 5.Channel 4.Output (X9.4)" Index="#x7041" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 5.ErrAck" Index="#x7042" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 6.Channel 1.Output (X9.5)" Index="#x7051" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 6.Channel 2.Output (X9.6)" Index="#x7051" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 6.Channel 3.Output (X9.7)" Index="#x7051" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 6.Channel 4.Output (X9.8)" Index="#x7051" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSOUT Module 6.ErrAck" Index="#x7052" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE CRC 001" Index="#x7110" Sub="#x04">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 1.ErrAck" Index="#x7072" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 2.ErrAck" Index="#x7082" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 3.ErrAck" Index="#x7092" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 4.ErrAck" Index="#x70a2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 5.ErrAck" Index="#x70b2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 6.ErrAck" Index="#x70c2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 7.ErrAck" Index="#x70d2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 8.ErrAck" Index="#x70e2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 9.Err Ack 1" Index="#x70f2" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 9.Err Ack 2" Index="#x70f2" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 10.Err Ack 1" Index="#x7102" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSIN Module 10.Err Ack 2" Index="#x7102" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__">
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE CRC 002" Index="#x7110" Sub="#x05">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="FSOE__FSoE Connection ID" Index="#x7110" Sub="#x02">
+					<Type>UINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="Outputs" Index="#x17fe" InOut="1" Flags="#x0091" SyncMan="6" SyncUnit="2">
+				<Entry Name="Module 1.Channel 1.Standard Output (X5.1)" Index="#x7003" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 1.Channel 2.Standard Output (X5.2)" Index="#x7003" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 1.Channel 3.Standard Output (X5.3)" Index="#x7003" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 1.Channel 4.Standard Output (X5.4)" Index="#x7003" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 2.Channel 1.Standard Output (X5.5)" Index="#x7013" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 2.Channel 2.Standard Output (X5.6)" Index="#x7013" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 2.Channel 3.Standard Output (X5.7)" Index="#x7013" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 2.Channel 4.Standard Output (X5.8)" Index="#x7013" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 3.Channel 1.Standard Output (X7.1)" Index="#x7023" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 3.Channel 2.Standard Output (X7.2)" Index="#x7023" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 3.Channel 3.Standard Output (X7.3)" Index="#x7023" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 3.Channel 4.Standard Output (X7.4)" Index="#x7023" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 4.Channel 1.Standard Output (X7.5)" Index="#x7033" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 4.Channel 2.Standard Output (X7.6)" Index="#x7033" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 4.Channel 3.Standard Output (X7.7)" Index="#x7033" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 4.Channel 4.Standard Output (X7.8)" Index="#x7033" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 5.Channel 1.Standard Output (X9.1)" Index="#x7043" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 5.Channel 2.Standard Output (X9.2)" Index="#x7043" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 5.Channel 3.Standard Output (X9.3)" Index="#x7043" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 5.Channel 4.Standard Output (X9.4)" Index="#x7043" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 6.Channel 1.Standard Output (X9.5)" Index="#x7053" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 6.Channel 2.Standard Output (X9.6)" Index="#x7053" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 6.Channel 3.Standard Output (X9.7)" Index="#x7053" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Module 6.Channel 4.Standard Output (X9.8)" Index="#x7053" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="FSLOGIC Inputs" Index="#x1bff" Flags="#x0091" SyncMan="3">
+				<Entry Name="Safe Logic State" Index="#xf100" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="Cycle Counter" Index="#xf100" Sub="#x02">
+					<Type>USINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="FSLOGIC Outputs" Index="#x17ff" InOut="1" Flags="#x0091" SyncMan="2">
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000010}">ARRAY [0..1] OF BYTE</Type>
+				</Entry>
+			</Pdo>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="19075977"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="12522377"/>
+			<CoeProfile ProfileNo="45290377"/>
+			<Slot Name="FSoE-Slot">
+				<SlotData>0000000001000400000000000000000000000000000000000000000000000000</SlotData>
+				<ModuleIdent>17303464</ModuleIdent>
+				<Module Id="#x03090001" Type="FSoE" Class="1960">
+					<Name>Module 1 (FSoE)</Name>
+					<ImageId>429</ImageId>
+					<ModuleData>02000000a807080100000c000000000000000000000000000000000000000000</ModuleData>
+					<PdoIndex>6656</PdoIndex>
+					<PdoIndex>5632</PdoIndex>
+					<CoeProfile ProfileNo="#x01231389"/>
+				</Module>
+			</Slot>
+			<Slot Name="FSOUT-Slot">
+				<SlotData>0000010001000400000000000000000000000000000000000000000000000000</SlotData>
+				<ModuleIdent>203</ModuleIdent>
+				<Module Id="#x03090002" Type="FSOUT" Class="FSOUT">
+					<Name>Module 2 (FSOUT)</Name>
+					<ImageId>429</ImageId>
+					<ModuleData>02000000cb000000000004000000000000000000000000000000000000000000</ModuleData>
+					<PdoIndex>6142</PdoIndex>
+				</Module>
+			</Slot>
+			<Slot Name="FSLOGIC">
+				<SlotData>0000010001000400000000000000000000000000000000000000000000000000</SlotData>
+				<ModuleIdent>691</ModuleIdent>
+				<Module Id="#x03090003" Type="FSLOGIC" Class="FSLOGIC">
+					<Name>Module 3 (FSLOGIC)</Name>
+					<ImageId>429</ImageId>
+					<ModuleData>02000000b3020000000004000000000000000000000000000000000000000000</ModuleData>
+					<PdoIndex>7167</PdoIndex>
+					<PdoIndex>6143</PdoIndex>
+				</Module>
+			</Slot>
+		</EtherCAT>
+	</Box>
+</TcSmItem>

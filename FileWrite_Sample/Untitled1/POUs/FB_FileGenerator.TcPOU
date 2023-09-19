@@ -1,94 +1,112 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
-  <POU Name="FB_FileGenerator" Id="{62c0f7fc-ce17-40c3-bf61-61d6219d96d2}" SpecialFunc="None">
+  <POU Name="FB_FileGenerator" Id="{85727ddd-c2c9-46b1-8055-f03bc04251c8}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_FileGenerator
 VAR_INPUT
-	sPath : STRING;
+	sFileName : STRING(70);
+	sSelectedDirectory : STRING(170);
 	sSomethingToWrite : STRING(1024);
 	bExecute : BOOL;
 END_VAR
+
 VAR_OUTPUT
 	bError : BOOL;
 	nErrorID : UDINT;
 END_VAR
+
 VAR
-	fbFileOpen : FB_FileOpen;
+	fbFileOpen : FB_FileOpen :=(nMode := FOPEN_MODEWRITE, ePath := PATH_GENERIC);
 	fbFileWrite : FB_FileWrite;
 	fbFileClose : FB_FileClose;
-	fbExecute : R_TRIG;
-	step : INT;
-	aData : ARRAY[0..1023] OF BYTE;
+	rTrigExecute : R_TRIG;
+	sErrorState : STRING;
+	eState : (Init, FileOpening, FileWriting, FileClosing, Error);
+	
 	
 	eFileGenerateStep : E_FileGenerateStep;
-	nTest : INT;
+	nTest : UDINT;
 	tTimeOut : TIME := T#3S;
-	i: INT;
-END_VAR
-]]></Declaration>
+	
+END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbExecute(CLK:=bExecute);
+      <ST><![CDATA[rTrigExecute(CLK:=bExecute);
 
-CASE step OF
-	0:
-		fbFileOpen.bExecute := FALSE;
-		fbFileWrite.bExecute := FALSE;
-		fbFileClose.bExecute := FALSE;
-		fbFileOpen.sPathName := sPath;
-		fbFileOpen.nMode := FOPEN_MODEWRITE;
+CASE eState OF
+	Init:
+		fbFileOpen(bExecute := FALSE);	
+	    fbFileWrite(bExecute := FALSE);
+	    fbFileClose(bExecute := FALSE);
+		nErrorID := 0;
 		bError := FALSE;
-		nErrorID :=0;
-		IF fbExecute.Q THEN
-			step := 10;	
-		END_IF
 		
-	10:
-		fbFileOpen.bExecute := TRUE;
-		step := 20;
-	20:
+		IF rTrigExecute.Q THEN
+			eState := FileOpening;
+		END_IF
+	
+	FileOpening:
+		fbFileOpen(bExecute := TRUE,
+					sPathName := CONCAT(GetDirectoryPath(sSelectedDirectory),sFileName));
 		IF fbFileOpen.bError THEN
-			bError := TRUE;
 			nErrorID := fbFileOpen.nErrId;
-			step := 99;
+			eState := Error;	
+			sErrorState := 'FileOpening';
 		ELSIF NOT fbFileOpen.bBusy THEN
-			step := 30;
-		END_IF
-		fbFileOpen.bExecute :=FALSE;
-	30:
-		fbFileWrite.bExecute := TRUE;
-		step := 40;
-	40:
-		IF fbFileWrite.bError THEN
-			bError := TRUE;
-			nErrorID := fbFileWrite.nErrId;
-			step := 99;
-		ELSIF NOT fbFileWrite.bBusy THEN
-			fbFileWrite.bExecute := FALSE;
-			step := 50;
-		END_IF
-	50:
-		fbFileClose.bExecute := TRUE;
-		step := 60;
-	60:
-		IF fbFileClose.bError THEN
-			bError := TRUE;
-			nErrorID := fbFileClose.nErrId;
-			step := 99;
-		ELSIF NOT fbFileClose.bBusy THEN
-			fbFileClose.bExecute := FALSE;
-			step := 0;
+			fbFileOpen(bExecute := FALSE);
+			eState := FileWriting;
 		END_IF
 		
-	(* Error *)	
-	99:	
-		IF fbExecute.Q THEN
-			step := 0;
+	FileWriting:
+		fbFileWrite(bExecute := TRUE,
+					hFile:= fbFileOpen.hFile,
+					pWriteBuff:=ADR(sSomethingToWrite),
+					cbWriteLen := SIZEOF(sSomethingToWrite));
+		IF fbFileWrite.bError THEN
+			eState := Error;
+			nErrorID := fbFileWrite.nErrId;
+			sErrorState := 'FileWriting';
+		ELSIF NOT fbFileWrite.bBusy THEN
+			fbFileWrite(bExecute := FALSE);
+			eState := FileClosing;
+		END_IF
+	
+	FileClosing:
+		fbFileClose(bExecute := TRUE,
+					hFile := fbFileOpen.hFile);
+		IF fbFileClose.bError THEN
+			nErrorID := fbFileClose.nErrId;
+			eState := Error;
+			sErrorState := 'FileClosing';	
+		ELSIF NOT fbFileClose.bBusy THEN
+			eState := Init;
+		END_IF
+	
+	Error:
+		bError := TRUE;
+		IF rTrigExecute.Q THEN
+			eState := Init;
 		END_IF
 END_CASE
 
-
-fbFileOpen(sNetID := '',tTimeout := tTimeOut,ePath := PATH_GENERIC);
-fbFileWrite(sNetID := '',hFile := fbFileOpen.hFile,tTimeout := tTimeOut, pWriteBuff:=ADR(sSomethingToWrite),cbWritelen := SIZEOF(sSomethingToWrite));
-fbFileClose(sNetID := '',hFile := fbFileOpen.hFile,tTimeout := tTimeOut);]]></ST>
+nTest := LEN2(ADR(sSomethingToWrite));]]></ST>
     </Implementation>
+    <Method Name="GetDirectoryPath" Id="{002ffafc-2f01-479b-b9bf-bf27b4d1991d}">
+      <Declaration><![CDATA[METHOD PRIVATE GetDirectoryPath : STRING
+VAR_INPUT
+	sSelectedDirectroy : STRING(170);
+END_VAR
+VAR
+	
+END_VAR
+VAR CONSTANT
+	sCdrive : STRING(3) := 'C:\';
+	sSlash : STRING(1) := '/';
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[GetDirectoryPath := CONCAT(sCdrive, sSelectedDirectroy);
+GetDirectoryPath := CONCAT(GetDirectoryPath, sSlash);
+
+(* Return: C:\xxx/ *)]]></ST>
+      </Implementation>
+    </Method>
   </POU>
 </TcPlcObject>
