@@ -15,26 +15,14 @@
     <Implicit_KindOfTask>{98c61a7b-3e9f-4990-93b5-c36bc217882b}</Implicit_KindOfTask>
     <Implicit_Jitter_Distribution>{bdb2f77d-0239-4562-b0a7-7f1d777e3248}</Implicit_Jitter_Distribution>
     <LibraryReferences>{e30b4038-dc1b-4401-9d48-8baab148c639}</LibraryReferences>
+    <Company>Changdae</Company>
+    <Released>false</Released>
+    <Title>FileReadWriteOpen</Title>
+    <ProjectVersion>1.0</ProjectVersion>
+    <Author>Back, Changdae</Author>
+    <Description>Simple File Read, Write, Open via HMI</Description>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Developing\FB_FileGenerator_old.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Developing\FB_FileReader_old.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Developing\F_PathCdriveFileName.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Developing\F_PathCdriveSelectedFile.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Developing\F_SubStringSelectedFile.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DUTs\E_FileGenerateStep.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
@@ -54,7 +42,6 @@
   <ItemGroup>
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
-    <Folder Include="Developing" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>

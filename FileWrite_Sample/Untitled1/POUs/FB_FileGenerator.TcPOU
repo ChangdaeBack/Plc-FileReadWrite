@@ -22,11 +22,6 @@ VAR
 	sErrorState : STRING;
 	eState : (Init, FileOpening, FileWriting, FileClosing, Error);
 	
-	
-	eFileGenerateStep : E_FileGenerateStep;
-	nTest : UDINT;
-	tTimeOut : TIME := T#3S;
-	
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[rTrigExecute(CLK:=bExecute);
@@ -85,9 +80,7 @@ CASE eState OF
 		IF rTrigExecute.Q THEN
 			eState := Init;
 		END_IF
-END_CASE
-
-nTest := LEN2(ADR(sSomethingToWrite));]]></ST>
+END_CASE]]></ST>
     </Implementation>
     <Method Name="GetDirectoryPath" Id="{002ffafc-2f01-479b-b9bf-bf27b4d1991d}">
       <Declaration><![CDATA[METHOD PRIVATE GetDirectoryPath : STRING
