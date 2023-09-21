@@ -81,7 +81,8 @@ CASE eState OF
 		IF rTrigExecute.Q THEN
 			eState := Init;
 		END_IF
-END_CASE]]></ST>
+END_CASE
+]]></ST>
     </Implementation>
     <Method Name="GetDirectoryPath" Id="{8cf6fea6-f63e-449c-b720-9552f5fda666}">
       <Declaration><![CDATA[METHOD PRIVATE GetDirectoryPath : STRING

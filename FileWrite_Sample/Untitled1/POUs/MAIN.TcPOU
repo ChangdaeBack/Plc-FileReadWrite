@@ -15,8 +15,7 @@ END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[fbFileGenerator(sSelectedDirectory := sSelectedDirectory_HI, sFileName := sFileName_HI);
 fbFileReader(sSelectedFile := sSelectedFile_HI ,sSelectedDirectory := sSelectedDirectory_HI);
-fbOpenFileFromWindow(sSelectedFile := sSelectedFile_HI, sSelectedDirectory := sSelectedDirectory_HI);
-]]></ST>
+fbOpenFileFromWindow(sSelectedFile := sSelectedFile_HI, sSelectedDirectory := sSelectedDirectory_HI);]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
